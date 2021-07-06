@@ -1,10 +1,10 @@
-public class User {
+public class User implements Comparable {
     private String _name;
     private String _email;
     private int _age;
     private int _balance;
 
-    public User(String name, String email , int age , int balance) {
+    public User(String name, String email, int age, int balance) {
         _name = name;
         _email = email;
         _age = age;
@@ -12,10 +12,10 @@ public class User {
     }
 
     public void display() {
-        System.out.println("Name :"+_name+"\n"+
-                "Email :"+_email+"\n"+
-                "Age :"+_age+"\n"+
-                "Balance :"+_balance+"\n");
+        System.out.println("Name :" + _name + "\n" +
+                "Email :" + _email + "\n" +
+                "Age :" + _age + "\n" +
+                "Balance :" + _balance + "\n");
     }
 
     public String getName() {
@@ -49,4 +49,12 @@ public class User {
     public void setBalance(int balance) {
         this._balance = balance;
     }
+
+    @Override
+    public int compareTo(Object o) {
+        User u = (User) o;
+        return _name.compareToIgnoreCase(u.getName());
+    }
+
+
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -142,14 +143,10 @@ public class Main {
             users.sort(new Comparator<User>() {
                 @Override
                 public int compare(User u1, User u2) {
-                    if (u1.getName().compareToIgnoreCase(u2.getName()) == 0) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-
+                    return u1.getName().compareToIgnoreCase(u2.getName());
                 }
             });
+            users.sort(Collections.reverseOrder());
         }
         return users;
     }
